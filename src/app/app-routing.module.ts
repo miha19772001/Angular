@@ -4,8 +4,11 @@ import { BookPageComponent } from './components/site-one/book-page/book-page.com
 import { SiteOneComponent } from './components/site-one/site-one/site-one.component';
 
 const routes: Routes = [
+
+  //Links in first site
   { path: 'siteOne', component: SiteOneComponent },
-  { path: 'bookPage', component: BookPageComponent},
+  { path: 'bookPage/:id', component: BookPageComponent},
+  
   { path: '**', redirectTo: '/'},
 ];
 

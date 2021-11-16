@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'
+
 import { SiteOneComponent } from '../site-one/site-one.component';
 
 import { SiteOneHeaderComponent } from '../site-one-header/site-one-header.component';
@@ -11,12 +14,15 @@ import { BookPageComponent } from '../book-page/book-page.component';
 
 import { LinkDirective } from '../../../directives/site-one/link.directive';
 
+import { BookPageService } from 'src/app/services/book-page.service.service';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   declarations: [
     SiteOneComponent,
@@ -25,5 +31,6 @@ import { LinkDirective } from '../../../directives/site-one/link.directive';
     LinkDirective,
   ],
   exports: [SiteOneComponent],
+  providers: [BookPageService],
 })
 export class SiteOneModule { }

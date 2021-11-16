@@ -1,6 +1,5 @@
 <div class="wrapper">
 	<site-one-header></site-one-header>
-	<input class="wrapper_input-outside" type="text" placeholder="Поиск произведения" />
 	<main>
 		<div class="main_grid">
 			<div class="main_item">
@@ -16,9 +15,7 @@
 			<div class="main_item">
 				<div class="main_container">
 					<ul>
-						<li><a href="">addddffffffffffffffffffffffffffffffffffffffffffffffffffddddda</a></li>
-						<li><a href="">list-style-position: inside;asdfasdf sdfasdf sdfasdf</a></li>
-						<li>adsfadf</li>
+						<li *ngFor="let book of books; let i = index"><a [routerLink]="['/bookPage', book.id]">{{book.name}} — {{book.autor}}</a></li>
 					</ul>
 				</div>
 			</div>

@@ -1,0 +1,32 @@
+.wrapper{
+	width: 100%;
+	height: 100vh;
+	border:gold solid 2px;
+	color: white;
+
+	main{
+		border: white solid 2px;
+		max-height: 800px;
+		max-width: 1000px;
+		margin: 50px auto;
+		//Потом удали это
+		min-height: auto;
+		height: 800px;
+		
+		.main_grid{
+			height: 100%;
+			width: 100%;
+			display: grid;
+
+			.main_item{
+				border: gold solid 2px;
+				height: 100px;
+				width: 100px;
+				//Потом удали это
+				font-size: 20px;
+				text-align: center;
+				
+			}
+		}
+	}
+}

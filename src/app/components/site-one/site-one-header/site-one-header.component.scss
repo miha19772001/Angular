@@ -45,7 +45,7 @@ header{
 			button{
 				width: 35px;
 				height: 35px;
-				background-image: url(../../../icons/magnifier.jpg) ;
+				background-image: url(../../../img/magnifier.jpg);
 				background-color: #282931;
 				background-size: 100% 100%;
 				margin: 5px 0px;
@@ -59,4 +59,20 @@ header{
 			}
 		}
 	}
+}
+
+.wrapper_input-outside{
+	display: block;
+	height: 35px;
+	background-color: #18171C;
+	border: 1px white solid;
+	border-radius: 2em;
+	color: white;
+	padding: 0px 20px;
+	font-size: 20px;
+	margin: 10px auto;
+}
+
+@media (min-width: 611px) {
+	.wrapper_input-outside{	display: none;}
 }
