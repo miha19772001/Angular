@@ -12,7 +12,8 @@ import { SiteOneComponent } from '../site-one/site-one.component';
 import { SiteOneHeaderComponent } from '../site-one-header/site-one-header.component';
 import { BookPageComponent } from '../book-page/book-page.component';
 
-import { LinkDirective } from '../../../directives/site-one/link.directive';
+
+
 
 import { BookPageService } from 'src/app/services/book-page.service.service';
 
@@ -28,7 +29,6 @@ import { BookPageService } from 'src/app/services/book-page.service.service';
     SiteOneComponent,
     SiteOneHeaderComponent,
     BookPageComponent,
-    LinkDirective,
   ],
   exports: [SiteOneComponent],
   providers: [BookPageService],

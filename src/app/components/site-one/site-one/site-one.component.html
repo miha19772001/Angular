@@ -15,7 +15,7 @@
 			<div class="main_item">
 				<div class="main_container">
 					<ul>
-						<li *ngFor="let book of books; let i = index"><a [routerLink]="['/bookPage', book.id]">{{book.name}} — {{book.autor}}</a></li>
+						<li *ngFor="let book of books"><a [routerLink]="['/bookPage', book.id]">{{book.name}} — {{book.autor}}</a></li>
 					</ul>
 				</div>
 			</div>

@@ -3,24 +3,26 @@
 	<main>
 		<div class="main_grid">
 			<div class="main_item">
-				1 img
+				<img [src]="this.book.img" alt="img">
 			</div>
 			<div class="main_item">
-				<div class="main_container">
-					2 name autor
+				<div>
+					<span>{{this.book.name}}</span>
+				</div>
+				<div>
+					<span>{{this.book.autor}}</span>
 				</div>
 			</div>
 			<div class="main_item">
-				<div class="main_container main_container-lat">
-					3 reading
+				<div>
+					<button>Читать</button>
 				</div>
 			</div>
 			<div class="main_item">
-				4 desc
+				{{this.book.discription}}
 			</div>
-			<div class="main_item">
-				5 content
-			</div>
+		</div>
+		<div class="content">
 		</div>
 	</main>
 </div>
