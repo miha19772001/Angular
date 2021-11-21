@@ -11,11 +11,14 @@ export class SiteOneHeaderComponent {
   
   constructor(private element: ElementRef) {
 
+    this.resize_info()
     window.onresize = () => { this.resize_info(); };
-    window.onload = () => { this.resize_info(); };
+    //window.onload = () => { this.resize_info(); };
+    
   }
   resize_info() {
     if (innerWidth < 321) this.logo = 'ML';
-    else this.logo = 'My Library';
+    else this.logo = 'My Library'; 
   }
+  
 }

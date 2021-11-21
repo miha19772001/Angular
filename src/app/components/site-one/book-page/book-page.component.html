@@ -23,6 +23,27 @@
 			</div>
 		</div>
 		<div class="content">
+			<div class="content_top">
+				Содержание
+			</div>
+			<hr />
+			<div class="content_space"></div>
+			<div class="content_main">
+				<div class="content_item">Lorem ipsum dolor sit amet</div>
+				<div class="content_item"><img src="assets/img/right-arrow.png" alt=""></div>
+			</div>
+			<div class="content_main">
+				<div class="content_item">Lorem ipsum dolor sit amet</div>
+				<div class="content_item"><img src="assets/img/right-arrow.png" alt=""></div>
+			</div>
+			<div class="content_main">
+				<div class="content_item">Lorem ipsum dolor sit amet</div>
+				<div class="content_item"><img src="assets/img/right-arrow.png" alt=""></div>
+			</div>
+			<div class="content_main" *ngFor="let item of this.book.content">
+				<div class="content_item">{{item}}</div>
+				<div class="content_item"><img src="assets/img/right-arrow.png" alt=""></div>
+			</div>
 		</div>
 	</main>
 </div>
