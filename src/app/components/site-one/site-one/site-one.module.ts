@@ -11,11 +11,11 @@ import { SiteOneComponent } from '../site-one/site-one.component';
 
 import { SiteOneHeaderComponent } from '../site-one-header/site-one-header.component';
 import { BookPageComponent } from '../book-page/book-page.component';
+import { ContentComponent } from '../content/content.component';
 
 
 
-
-import { BookPageService } from 'src/app/services/book-page.service.service';
+import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
 
 @NgModule({
   imports: [
@@ -29,6 +29,7 @@ import { BookPageService } from 'src/app/services/book-page.service.service';
     SiteOneComponent,
     SiteOneHeaderComponent,
     BookPageComponent,
+    ContentComponent,
   ],
   exports: [SiteOneComponent],
   providers: [BookPageService],

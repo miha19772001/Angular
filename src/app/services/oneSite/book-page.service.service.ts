@@ -9,6 +9,6 @@ export class BookPageService {
   constructor(private http: HttpClient) { }
 
   getBooks() {
-    return this.http.get('assets/books.json')
+    return this.http.get('assets/books/books.json');
   }
 }

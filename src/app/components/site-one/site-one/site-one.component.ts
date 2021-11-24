@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookPageService } from 'src/app/services/book-page.service.service';
+import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
 
 @Component({
   selector: 'app-site-one',

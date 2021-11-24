@@ -1,0 +1,8 @@
+<div class="wrapper">
+	<site-one-header></site-one-header>
+	<main>
+		<div class="main_addition" *ngIf="isInChapter">{{this.chapter.addition}}</div>
+
+		<p *ngFor="let paragraphs of this.chapter.paragraphs "><span class="main_space"></span>{{paragraphs}}</p>
+	</main>
+</div>

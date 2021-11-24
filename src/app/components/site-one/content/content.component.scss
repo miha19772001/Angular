@@ -1,0 +1,36 @@
+.wrapper{
+	
+	main{
+		margin: 20px auto 0px auto;
+		//border: gold 1px solid;
+		max-width: 850px;
+		position: relative;
+		font-size: 18px;
+		font-family: Times New Roman;
+		line-height: 23px;
+		letter-spacing: 0.3px;
+		color: rgb(255, 255, 255);
+
+		.main_addition{
+			max-width: 300px;
+			margin-left: auto;
+			//border: solid green 1px;
+			
+			text-align: center;
+			font-style: italic;
+			padding: 0px 5% 15px 20px;
+			letter-spacing: 0.4px;
+		}
+
+		p{
+			padding: 0px 15px;
+			text-align: justify;
+			
+			.main_space{
+				width: 2em;
+				height: 1em;
+				display: inline-block;
+			}
+		}
+	}
+}
