@@ -19,6 +19,14 @@ export class BookPageComponent implements OnInit {
 
   book: any = {};
 
+  startToRead() {
+    document.location.pathname = `bookPage/${this.getId() + 1}/content/1`;
+  }
+
+  goToPage(index: number){
+    document.location.pathname = `bookPage/${this.getId() + 1}/content/${index + 1}`
+  }
+
   getId() {
     let path = document.location.pathname;
     let id = path.replace(/[^0-9]/g, '');
@@ -33,6 +41,8 @@ export class BookPageComponent implements OnInit {
           this.books = data.books;
 
           this.book = this.books[this.getId()];
+
+          console.log(this.book.content)
         }
       );
   }

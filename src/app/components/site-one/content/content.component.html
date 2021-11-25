@@ -1,8 +1,31 @@
 <div class="wrapper">
 	<site-one-header></site-one-header>
 	<main>
+		<div class="main_go-to-book"><a [routerLink]="['/bookPage', book.id]">{{this.book.name}}</a></div>
+
+		<div class="main_name-of-paragraph">{{this.nameOfParagrath}}</div>
+
 		<div class="main_addition" *ngIf="isInChapter">{{this.chapter.addition}}</div>
 
 		<p *ngFor="let paragraphs of this.chapter.paragraphs "><span class="main_space"></span>{{paragraphs}}</p>
+		<div class="main_navigation">
+			<div class="main_navigation-back">
+				<div class="navigation_link">
+					<a href="{{this.previousPage}}" *ngIf="makeInvisibaleFirstLink()">
+						<img src="assets/img/right-arrow.png" alt="">
+						<span>{{this.previousChapter}}</span>
+					</a>
+				</div>
+			</div>
+			<div class="main_number-of-chapter">{{this.getId().contentId + 1}}/{{this.book.content.length}}</div>
+			<div class="main_navigation-forward">
+				<div class="navigation_link">
+					<a href="{{this.nextPage}}" *ngIf="makeInvisibaleLastLink()">
+						<span>{{this.nextChapter}}</span>
+						<img src="assets/img/right-arrow.png" alt="">
+					</a>
+				</div>
+			</div>
+		</div>
 	</main>
 </div>
