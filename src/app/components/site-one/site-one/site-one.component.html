@@ -3,19 +3,10 @@
 	<main>
 		<div class="main_grid">
 			<div class="main_item">
-				<h2>Последние запросы:</h2>
-				<ul class="main_list">
-					<li class="main_list-item"><button class="main_list-button">1.Элемент номер один</button></li>
-					<li class="main_list-item"><button class="main_list-button">2. Элемент номер два</button></li>
-					<li class="main_list-item"><button class="main_list-button">3. Элемент номер три</button></li>
-					<li class="main_list-item"><button class="main_list-button">4. Элемент номер четыре</button></li>
-					<li class="main_list-item"><button class="main_list-button">5. "Элемент номер пять</button></li>
-				</ul>
-			</div>
-			<div class="main_item">
 				<div class="main_container">
 					<ul>
-						<li *ngFor="let book of books"><a [routerLink]="['/bookPage', book.id]">{{book.name}} — {{book.autor}}</a></li>
+						<li *ngFor="let book of books"><a [routerLink]="['/bookPage', book.id]">{{book.name}} —
+								{{book.autor}}</a></li>
 					</ul>
 				</div>
 			</div>

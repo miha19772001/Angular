@@ -1,5 +1,5 @@
-import { Component, ElementRef } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
 @Component({
   selector: 'site-one-header',
   templateUrl: './site-one-header.component.html',
@@ -8,17 +8,31 @@ import { Component, ElementRef } from '@angular/core';
 export class SiteOneHeaderComponent {
 
   logo: string = '';
-  
-  constructor(private element: ElementRef) {
+
+  nameBook: string = '';
+
+  constructor(private bookPage: BookPageService) {
 
     this.resize_info()
     window.onresize = () => { this.resize_info(); };
-    //window.onload = () => { this.resize_info(); };
-    
   }
   resize_info() {
-    if (innerWidth < 321) this.logo = 'ML';
-    else this.logo = 'My Library'; 
+
+    innerWidth < 321 ? this.logo = 'ML' : this.logo = 'My Library';
   }
-  
+
+  seekBook() {
+    this.bookPage.getBooks()
+      .subscribe(
+        (data: any) => {
+          for (let index = 0; index < data.books.length; index++) {
+            if (data.books[index].name === this.nameBook[0].toUpperCase() + this.nameBook.slice(1)) {
+              document.location.pathname = `/bookPage/${index + 1}`;
+              console.log(document.location.pathname)
+              break;
+            }
+          }
+        }
+      )
+  }
 }

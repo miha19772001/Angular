@@ -13,10 +13,6 @@ import { SiteOneHeaderComponent } from '../site-one-header/site-one-header.compo
 import { BookPageComponent } from '../book-page/book-page.component';
 import { ContentComponent } from '../content/content.component';
 
-
-
-import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -32,6 +28,6 @@ import { BookPageService } from 'src/app/services/oneSite/book-page.service.serv
     ContentComponent,
   ],
   exports: [SiteOneComponent],
-  providers: [BookPageService],
+  providers: [],
 })
 export class SiteOneModule { }

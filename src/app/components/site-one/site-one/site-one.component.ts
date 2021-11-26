@@ -12,8 +12,9 @@ export class SiteOneComponent implements OnInit {
   constructor(private bookPage: BookPageService) { }
 
   books: any = [];
-  
+
   ngOnInit() {
+
     this.bookPage.getBooks()
       .subscribe(
         (data: any) => { this.books = data.books; }
