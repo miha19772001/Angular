@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from 'src/app/services/oneSite/content.service';
 import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
+import { IBook } from 'src/assets/Interfaces/IBook';
 
 @Component({
   selector: 'app-content',
@@ -13,7 +14,7 @@ export class ContentComponent implements OnInit {
 
   chapter: any = [];
 
-  book: any = {};
+  book!: IBook;
 
   nextChapter: string = '';
   previousChapter: string = '';

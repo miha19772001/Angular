@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
+import { IBook } from 'src/assets/Interfaces/IBook';
 
 @Component({
   selector: 'app-site-one',
@@ -11,7 +12,7 @@ export class SiteOneComponent implements OnInit {
 
   constructor(private bookPage: BookPageService) { }
 
-  books: any = [];
+  books: IBook[] = [];
 
   ngOnInit() {
 

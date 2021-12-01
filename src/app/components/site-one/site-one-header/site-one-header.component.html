@@ -4,11 +4,12 @@
 			<div class="header_link">
 				<a class="header_mainLink" routerLink="/siteOne"><span class="header_wordsLink">{{this.logo}}</span></a>
 				<div class="header_search">
-					<input class="header_input" type="text" placeholder="Поиск произведения"
-						[(ngModel)]="this.nameBook" /><button (click)="seekBook()"></button>
+					<input class="header_input" type="text" placeholder="Поиск произведения" [(ngModel)]="this.nameBook"
+						(keydown.enter)="onEnter()" /><button (click)="seekBook()"></button>
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
-<input class="wrapper_input-outside" type="text" placeholder="Поиск произведения" [(ngModel)]="this.nameBook" />
+<input class="wrapper_input-outside" type="text" placeholder="Поиск произведения" [(ngModel)]="this.nameBook"
+	(keydown.enter)="onEnter()" />

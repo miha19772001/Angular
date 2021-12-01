@@ -13,11 +13,11 @@ export class BookPageComponent implements OnInit {
 
   constructor(private bookPage: BookPageService) { }
 
-  books: any = [];
+  books: IBook[] = [];
 
   id = this.getId();
 
-  book: any = {};
+  book!: IBook;
 
   startToRead() {
     document.location.pathname = `bookPage/${this.getId() + 1}/content/1`;

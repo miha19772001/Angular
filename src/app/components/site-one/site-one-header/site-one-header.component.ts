@@ -11,6 +11,8 @@ export class SiteOneHeaderComponent {
 
   nameBook: string = '';
 
+  values = '';
+
   constructor(private bookPage: BookPageService) {
 
     this.resize_info()
@@ -28,11 +30,14 @@ export class SiteOneHeaderComponent {
           for (let index = 0; index < data.books.length; index++) {
             if (data.books[index].name === this.nameBook[0].toUpperCase() + this.nameBook.slice(1)) {
               document.location.pathname = `/bookPage/${index + 1}`;
-              console.log(document.location.pathname)
               break;
             }
           }
         }
       )
+  }
+
+  onEnter() {
+    this.seekBook();
   }
 }
