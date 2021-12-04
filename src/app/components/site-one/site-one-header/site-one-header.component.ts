@@ -19,7 +19,6 @@ export class SiteOneHeaderComponent {
     window.onresize = () => { this.resize_info(); };
   }
   resize_info() {
-
     innerWidth < 321 ? this.logo = 'ML' : this.logo = 'My Library';
   }
 
