@@ -15,12 +15,11 @@ main{
 			margin: 20px;
 			gap: 20px;
 			
-
 			.main_this-day{
 				grid-area: this-day;
 				background: #282931;
 				border-radius: 20px;
-
+			
 				.this-day_container{
 					@extend %container;
 
@@ -37,7 +36,6 @@ main{
 						top: 10%;
 						
 						div{
-							
 							background: yellowgreen;
 							height: 50px;
 							width: 50px;
@@ -137,22 +135,188 @@ main{
 					}
 				}			
 			}
+			@media (min-width: 767px) {
+
+				.main_cards{
+					grid-area: cards;
+					background: #282931;
+					border-radius: 20px;
+
+					.cards_container{
+						margin: 20px auto;
+						display: flex;
+						justify-content: space-around;
+					
+						.cards_item{				
+							width: 149px;
+							height: 200px;
+							background: #1b1c1d;
+							border-radius: 10px;
+							margin: 0px 5px 0px 5px;
+						
+							.cards_item-container{
+								margin: 10px;
+
+								.cards_day-of-week{
+									font-weight: 500;
+									font-size: 18px;
+									line-height: 22px;
+								}
+
+								.cards_date{
+									font-size: 14px;
+									line-height: 17px;
+									color: #939CB0;
+								}
+
+								.cards_icon{
+									margin: 10px 0px 10px 0px;
+								}
+
+								.cards_daytime-temperature{
+									font-size: 18px;
+									line-height: 22px;
+								}
+
+								.cards_nighttime-temperature{
+									font-size: 13px;
+									line-height: 16px;
+									color: #939CB0;
+								}
+
+								.cards_additional-information{
+									margin-top: 10px;
+									font-size: 13px;
+									line-height: 16px;
+									color: #939CB0;
+								}
+							}
+
+							@media (max-width: 1019px) {
+								.cards_item-container{
+									text-align: center;
+								}
+								.cards_icon{
+									div{
+										margin: 0px auto;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		@media (max-width: 767px) {
+			.main_grid-content{
+				grid-template: repeat(2, 300px) 1fr / minmax(100px, 767px) ;
+				grid-template-areas: 
+				"this-day "
+				"info"
+				"cards ";
+				margin-top: 60px;
+			}
+
+			.main_this-day{
+				grid-area: this-day;
+			}
+
+			.main_info{	
+				grid-area: info;
+			}
 
 			.main_cards{
 				grid-area: cards;
-				background: #282931;
-				border-radius: 20px;
+				
+				.cards_container{
+					display: grid;
+					grid-template: repeat(7, 70px) / minmax(100px, 767px);
+					gap: 10px;
+
+					.cards_item{
+						background: #282931;
+						border-radius: 10px;
+						
+						.cards_item-container{
+							position: relative;
+
+							.cards_day-of-week{
+								font-weight: 500;
+								font-size: 18px;
+								line-height: 22px;
+								display: inline-block;
+								position: absolute;
+								margin: 10px 0px 10px 0px;
+								left: 20px;
+							}
+
+							.cards_date{
+								font-size: 14px;
+								line-height: 17px;
+								color: #939CB0;
+								display: inline-block;
+								position: absolute;
+								margin: 35px 0px 0px 20px;
+							}
+
+							.cards_icon{
+								margin: 10px 0px 10px 0px;
+								display: inline-block;
+								position: absolute;
+								right: 20px;
+							}
+
+							.cards_daytime-temperature{
+								font-size: 18px;
+								line-height: 22px;
+								display: inline-block;
+								position: absolute;
+								left: 40%;
+								top: 15px;
+							}
+
+							.cards_nighttime-temperature{
+								font-size: 13px;
+								line-height: 16px;
+								color: #939CB0;
+								display: inline-block;
+								position: absolute;
+								left: 41%;
+								top: 40px;
+							}
+
+							.cards_additional-information{
+								margin-top: 10px;
+								font-size: 13px;
+								line-height: 16px;
+								color: #939CB0;
+								display: inline-block;
+								position: absolute;
+								right: 24%;
+								top: 17px;
+							}
+
+							@media (max-width: 488px) {
+								.cards_day-of-week{	left: 10%; }
+								.cards_date{ left: 5%; }
+								.cards_daytime-temperature{	left: 47%; }
+								.cards_nighttime-temperature{ left: 48%; }
+								.cards_additional-information{ display: none; }
+							}
+						}
+					}
+				}
 			}
 		}
 	}
 
-	@media (max-width: 611px) {
-		.container{
-			margin: 50px auto;
-		}
-	}
+	// @media (max-width: 611px) {
+	// 	.container{
+	// 		margin: 50px auto;
+	// 	}
+	// }
 }
-
 
 %this-day_text-color {
 	line-height: 30px;
@@ -161,7 +325,6 @@ main{
 }
 
 %container{
-	//border: 1px solid yellow;
 	margin: 20px;
 	position: relative;
 }
