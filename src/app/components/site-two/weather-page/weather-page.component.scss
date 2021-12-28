@@ -31,7 +31,7 @@ main{
 
 					.this-day_icon{
 						position: absolute;
-						display: inline-block;
+						//display: inline-block;
 						left: 70%;
 						top: 10%;
 						
@@ -310,12 +310,6 @@ main{
 			}
 		}
 	}
-
-	// @media (max-width: 611px) {
-	// 	.container{
-	// 		margin: 50px auto;
-	// 	}
-	// }
 }
 
 %this-day_text-color {

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-//import { fromEvent } from 'rxjs';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { Observable } from '@reactivex/rxjs';
+import { SiteTwoSelectComponent } from '../site-two-select/site-two-select.component';
 
 @Component({
   selector: 'app-site-two-header',
@@ -23,6 +23,14 @@ export class SiteTwoHeaderComponent implements OnInit {
     Observable.fromEvent(window, 'load').subscribe(e => {
       innerWidth < 321 ? this.logo = 'MW' : this.logo = 'My Weather';
     });
+  }
+
+  @ViewChild(SiteTwoSelectComponent, { static: false })
+  select!: SiteTwoSelectComponent;
+
+  @Output() getSelectValue() {
+    // return this.select.selectValue;
+    return [this.select.selectValue, this.select.selectLabel];
   }
 
   ngOnInit(): void {
