@@ -19,9 +19,12 @@ main{
 				grid-area: this-day;
 				background: #282931;
 				border-radius: 20px;
-			
+				position: relative;
+
 				.this-day_container{
 					@extend %container;
+
+					text-align: center;
 
 					.this-day_temperature{
 						color: #F77F1D;
@@ -31,31 +34,28 @@ main{
 
 					.this-day_icon{
 						position: absolute;
-						//display: inline-block;
-						left: 70%;
-						top: 10%;
-						
-						div{
-							background: yellowgreen;
-							height: 50px;
-							width: 50px;
-							border-radius: 50%;
-						}
+						left: 50%;
+						top: 30%;
+						transform: translateX(-50%);
 					}
 
 					.this-day_date{
 						font-size: 40px;
-						line-height: 49px;
-					}
-
-					.this-day_time{
-						@extend %this-day_text-color;
-						margin-top: 31px;
+						line-height: 35px;
+						margin-top: 70px;
 					}
 
 					.this-day_city{
 						@extend %this-day_text-color;
 						margin-top: 20px;
+					}
+
+					.this-day_clouds{
+						position: absolute;
+						top: 150px;
+						left: 260px;
+						width: 400px;
+						height: 200px;
 					}
 				}
 			}
@@ -67,7 +67,7 @@ main{
 				position: relative;
 				overflow: hidden;
 
-				img{
+				.info_clouds{
 					position: absolute;
 					width: 500px;
 					left: 200px;
@@ -132,6 +132,16 @@ main{
 						position: absolute;
 						left: 150px;
 						top: 24px;
+
+						#info_meaning-arrow{
+							width: 10px; 
+    						height: 10px;
+   							border-left: 5px solid transparent;
+    						border-right: 5px solid transparent;
+   							border-bottom: 13px solid;
+						    display: inline-block;
+							margin-left: 5px;
+						}
 					}
 				}			
 			}

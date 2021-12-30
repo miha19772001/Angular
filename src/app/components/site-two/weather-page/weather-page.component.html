@@ -6,24 +6,19 @@
 				<div class="main_this-day">
 					<div class="this-day_container">
 						<div class="this-day_temperature">
-							<span>-20°</span>
+							<span>{{this.weater.temp}}</span>
 						</div>
-						<div class="this-day_icon">
-							<div></div>
-						</div>
+						<div class="this-day_icon"></div>
 						<div class="this-day_date">
 							<span>Сегодня</span>
 						</div>
-						<div class="this-day_time">
-							<span>Время: 18:04</span>
-						</div>
 						<div class="this-day_city">
-							<span>{{city}}</span>
+							<span>{{this.weater.city}}</span>
 						</div>
 					</div>
 				</div>
 				<div class="main_info">
-					<img src="assets/img/clouds.png" alt="">
+					<img class="info_clouds" src="assets/img/clouds.png" alt="">
 
 					<div class="info_container">
 
@@ -33,7 +28,7 @@
 								<span>Температура</span>
 							</div>
 							<div class="info_meaning">
-								<span>-20° как -22°</span>
+								<span>{{this.weater.temp}} как {{this.weater.feels_like}}</span>
 							</div>
 						</div>
 
@@ -43,7 +38,7 @@
 								<span>Давление</span>
 							</div>
 							<div class="info_meaning">
-								<span>765 мм.рт.ст.</span>
+								<span>{{this.weater.pressure}} мм.рт.ст.</span>
 							</div>
 						</div>
 
@@ -53,7 +48,7 @@
 								<span>Осадки</span>
 							</div>
 							<div class="info_meaning">
-								<span>Без осадков</span>
+								<span>{{this.weater.description}}</span>
 							</div>
 						</div>
 
@@ -63,10 +58,12 @@
 								<span>Ветер</span>
 							</div>
 							<div class="info_meaning">
-								<span>5 м/с СВ</span>
+								<span id="info_meaning-wind"></span>
+								<div id="info_meaning-arrow"></div>
+								
 							</div>
 						</div>
-
+						
 					</div>
 				</div>
 				<div class="main_cards">
@@ -119,7 +116,8 @@
 								</div>
 							</div>
 
-						</div><div class="cards_item">
+						</div>
+						<div class="cards_item">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>Сегодня</span>
@@ -143,7 +141,8 @@
 								</div>
 							</div>
 
-						</div><div class="cards_item">
+						</div>
+						<div class="cards_item">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>Сегодня</span>
@@ -167,7 +166,8 @@
 								</div>
 							</div>
 
-						</div><div class="cards_item">
+						</div>
+						<div class="cards_item">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>Сегодня</span>
@@ -191,7 +191,8 @@
 								</div>
 							</div>
 
-						</div><div class="cards_item">
+						</div>
+						<div class="cards_item">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>Сегодня</span>
@@ -215,7 +216,8 @@
 								</div>
 							</div>
 
-						</div><div class="cards_item">
+						</div>
+						<div class="cards_item">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>Сегодня</span>
