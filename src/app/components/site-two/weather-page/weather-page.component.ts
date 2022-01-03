@@ -1,7 +1,6 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
-import { SiteTwoHeaderComponent } from '../site-two-header/site-two-header.component';
-import { Observable } from '@reactivex/rxjs';
+
 import { GetUrlCityService } from 'src/app/services/twoSite/get-url-city.service';
 
 import { IWeather } from 'src/assets/Interfaces/IWeather';
@@ -14,13 +13,13 @@ import { IWeather } from 'src/assets/Interfaces/IWeather';
 })
 export class WeatherPageComponent implements OnInit {
 
-  constructor(private getUrlCity: GetUrlCityService, private element: ElementRef, private renderer: Renderer2) { }
-  // @ViewChild(SiteTwoHeaderComponent)
-  // public header!: SiteTwoHeaderComponent;
+  constructor(private getUrlCity: GetUrlCityService, private renderer: Renderer2) { }
 
 
+  public dateNow = new Date().getDate();
+  public month = new Date().toLocaleString('default', { month: 'short' })
 
-  public weater: IWeather = {
+  public weather: IWeather = {
     temp: '',
     city: '',
     img: '',
@@ -33,8 +32,10 @@ export class WeatherPageComponent implements OnInit {
     }
   };
 
+  public weatherCards: any = [];
 
 
+  //Arrow of a direction of the wind
   public getDirectionOfTheWind(speed: number, deg: number) {
 
     let arrow = document.getElementById('info_meaning-arrow');
@@ -83,42 +84,62 @@ export class WeatherPageComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Get data for today
     this.getUrlCity.getCity()
       .subscribe(
         (data: any) => {
 
-          //console.log(data);
+          this.weather.city = data.name;
 
-          this.weater.temp = (Math.round(data.main.temp - 273)).toString() + '°';
+        }
+      )
 
-          this.weater.city = data.name;
+    // Get data for this week 
+    this.getUrlCity.getCityWeatherForSevenDays()
+      .subscribe(
+        (data: any) => {
 
-          this.weater.img = document.querySelector('.this-day_icon')!.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
+          let tomorrow = new Date();
+          tomorrow.setDate(tomorrow.getDate());
 
-          this.weater.feels_like = (Math.round(data.main.feels_like - 273)).toString() + '°';
+          // console.log(tomorrow.getDate())
+        
+          for (let i = 1; i < 7; i++) {
+            let card = {
+              img: `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`,
+              temperature: Math.round(data.daily[i].temp.day - 273).toString() + '°', 
+              feels_like: Math.round(data.daily[i].feels_like.day - 273).toString() + '°',
+              description: data.daily[i].weather[0].description.charAt(0).toUpperCase() + data.daily[i].weather[0].description.slice(1),
+            }
+            this.weatherCards.push(card)
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            // console.log(tomorrow.getDate())
+            // console.log(data.daily[i])
 
-          this.weater.pressure = (Math.round(data.main.pressure * 0.75)).toString();
+          }
+          // console.log(data.daily[0].temp)
 
-          let description = data.weather[0].description;
-          this.weater.description = description[0].toUpperCase() + description.slice(1);
+          // console.log(this.weatherCards)
 
+          //The data for today
+          this.weather.temp = (Math.round(data.current.temp - 273)).toString() + '°';
 
-          this.getDirectionOfTheWind(data.wind.speed, data.wind.deg)
+          this.weather.img = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
+
+          this.weather.feels_like = (Math.round(data.current.feels_like - 273)).toString() + '°';
+
+          this.weather.pressure = (Math.round(data.current.pressure * 0.75)).toString();
+
+          let description = data.current.weather[0].description;
+          this.weather.description = description[0].toUpperCase() + description.slice(1);
+
+          this.getDirectionOfTheWind(data.current.wind_speed, data.current.wind_deg)
+          
+          console.log()
+
         }
       )
   }
-
-  // ngAfterViewInit() {
-  //   // this.city = this.header.getSelectValue();
-  //   // Observable.fromEvent(document.getElementsByTagName('select'), 'change').subscribe(e => {
-  //   //   this.city = this.header.getSelectValue();
-  //   // });
-
-  //    this.city = this.header.getSelectValue()[1];
-  //   Observable.fromEvent(document.getElementsByTagName('select'), 'change').subscribe(e => {
-  //     this.city = this.header.getSelectValue()[1];
-  //   });
-  // }
 
 
 }

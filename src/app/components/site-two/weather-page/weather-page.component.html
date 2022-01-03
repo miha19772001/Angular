@@ -6,52 +6,49 @@
 				<div class="main_this-day">
 					<div class="this-day_container">
 						<div class="this-day_temperature">
-							<span>{{this.weater.temp}}</span>
+							<span>{{this.weather.temp}}</span>
 						</div>
-						<div class="this-day_icon"></div>
+						<div class="this-day_icon">
+							<img [src]='this.weather.img' alt=""/>
+						</div>
 						<div class="this-day_date">
 							<span>Сегодня</span>
 						</div>
 						<div class="this-day_city">
-							<span>{{this.weater.city}}</span>
+							<span>{{this.weather.city}}</span>
 						</div>
 					</div>
 				</div>
 				<div class="main_info">
 					<img class="info_clouds" src="assets/img/clouds.png" alt="">
-
 					<div class="info_container">
-
 						<div class="info_thermometer">
 							<div class="info_circle"></div>
 							<div class="info_content">
 								<span>Температура</span>
 							</div>
 							<div class="info_meaning">
-								<span>{{this.weater.temp}} как {{this.weater.feels_like}}</span>
+								<span>{{this.weather.temp}} как {{this.weather.feels_like}}</span>
 							</div>
 						</div>
-
 						<div class="info_humidity">
 							<div class="info_circle"></div>
 							<div class="info_content">
 								<span>Давление</span>
 							</div>
 							<div class="info_meaning">
-								<span>{{this.weater.pressure}} мм.рт.ст.</span>
+								<span>{{this.weather.pressure}} мм.рт.ст.</span>
 							</div>
 						</div>
-
 						<div class="info_evaporation">
 							<div class="info_circle"></div>
 							<div class="info_content">
 								<span>Осадки</span>
 							</div>
 							<div class="info_meaning">
-								<span>{{this.weater.description}}</span>
+								<span>{{this.weather.description}}</span>
 							</div>
 						</div>
-
 						<div class="info_wind">
 							<div class="info_circle"></div>
 							<div class="info_content">
@@ -60,187 +57,56 @@
 							<div class="info_meaning">
 								<span id="info_meaning-wind"></span>
 								<div id="info_meaning-arrow"></div>
-								
 							</div>
 						</div>
-						
 					</div>
 				</div>
 				<div class="main_cards">
 					<div class="cards_container">
+
 						<div class="cards_item">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>Сегодня</span>
 								</div>
 								<div class="cards_date">
-									<span>11 дек</span>
+									<span>{{this.dateNow}} {{this.month}}</span>
 								</div>
 								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
+									<img [src]='this.weather.img' alt="" style="width: 50px; height: 50px;"/>
 								</div>
 								<div class="cards_daytime-temperature">
-									<span>-20°</span>
+									<span>{{this.weather.temp}}</span>
 								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
+								<div class="cards_feels-like-temperature">
+									<span>как {{this.weather.feels_like}}</span>
 								</div>
 								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
+									<span>{{this.weather.description}}</span>
 								</div>
 							</div>
 						</div>
-						<div class="cards_item">
+						<div class="cards_item" *ngFor="let card of weatherCards">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
-									<span>Сегодня</span>
+									<span>Пн.</span>
 								</div>
 								<div class="cards_date">
 									<span>11 дек</span>
 								</div>
 								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
+									<img [src]="card.img" alt="" style="width: 50px; height: 50px;"/>
 								</div>
 								<div class="cards_daytime-temperature">
-									<span>-20°</span>
+									<span>{{card.temperature}}</span>
 								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
-								</div>
-								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="cards_item">
-							<div class="cards_item-container">
-								<div class="cards_day-of-week">
-									<span>Сегодня</span>
-								</div>
-								<div class="cards_date">
-									<span>11 дек</span>
-								</div>
-								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
-								</div>
-								<div class="cards_daytime-temperature">
-									<span>-20°</span>
-								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
+								<div class="cards_feels-like-temperature">
+									<span>как {{card.feels_like}}</span>
 								</div>
 								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
+									<span>{{card.description}}</span>
 								</div>
 							</div>
-
-						</div>
-						<div class="cards_item">
-							<div class="cards_item-container">
-								<div class="cards_day-of-week">
-									<span>Сегодня</span>
-								</div>
-								<div class="cards_date">
-									<span>11 дек</span>
-								</div>
-								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
-								</div>
-								<div class="cards_daytime-temperature">
-									<span>-20°</span>
-								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
-								</div>
-								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="cards_item">
-							<div class="cards_item-container">
-								<div class="cards_day-of-week">
-									<span>Сегодня</span>
-								</div>
-								<div class="cards_date">
-									<span>11 дек</span>
-								</div>
-								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
-								</div>
-								<div class="cards_daytime-temperature">
-									<span>-20°</span>
-								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
-								</div>
-								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="cards_item">
-							<div class="cards_item-container">
-								<div class="cards_day-of-week">
-									<span>Сегодня</span>
-								</div>
-								<div class="cards_date">
-									<span>11 дек</span>
-								</div>
-								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
-								</div>
-								<div class="cards_daytime-temperature">
-									<span>-20°</span>
-								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
-								</div>
-								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
-								</div>
-							</div>
-
-						</div>
-						<div class="cards_item">
-							<div class="cards_item-container">
-								<div class="cards_day-of-week">
-									<span>Сегодня</span>
-								</div>
-								<div class="cards_date">
-									<span>11 дек</span>
-								</div>
-								<div class="cards_icon">
-									<div
-										style="width: 50px; height: 50px; background-color: aliceblue; border-radius: 50%;">
-									</div>
-								</div>
-								<div class="cards_daytime-temperature">
-									<span>-20°</span>
-								</div>
-								<div class="cards_nighttime-temperature">
-									<span>-22°</span>
-								</div>
-								<div class="cards_additional-information">
-									<span>Небольшой дождь</span>
-								</div>
-							</div>
-
 						</div>
 					</div>
 				</div>

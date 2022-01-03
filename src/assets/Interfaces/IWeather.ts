@@ -1,4 +1,4 @@
-import { window } from "rxjs-compat/operator/window";
+
 
 export interface IWeather {
 	temp: string;

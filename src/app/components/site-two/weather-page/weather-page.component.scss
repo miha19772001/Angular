@@ -134,13 +134,15 @@ main{
 						top: 24px;
 
 						#info_meaning-arrow{
-							width: 10px; 
-    						height: 10px;
-   							border-left: 5px solid transparent;
-    						border-right: 5px solid transparent;
-   							border-bottom: 13px solid;
+							position: absolute;
+							width: 5px; 
+    						height: 5px;
+   							border-left: 2.5px solid transparent;
+    						border-right: 2.5px solid transparent;
+   							border-top: 8px solid;
 						    display: inline-block;
 							margin-left: 5px;
+							margin-top: 2px;
 						}
 					}
 				}			
@@ -188,7 +190,7 @@ main{
 									line-height: 22px;
 								}
 
-								.cards_nighttime-temperature{
+								.cards_feels-like-temperature{
 									font-size: 13px;
 									line-height: 16px;
 									color: #939CB0;
@@ -286,13 +288,13 @@ main{
 								top: 15px;
 							}
 
-							.cards_nighttime-temperature{
+							.cards_feels-like-temperature{
 								font-size: 13px;
 								line-height: 16px;
 								color: #939CB0;
 								display: inline-block;
 								position: absolute;
-								left: 41%;
+								left: 40%;
 								top: 40px;
 							}
 
@@ -305,13 +307,14 @@ main{
 								position: absolute;
 								right: 24%;
 								top: 17px;
+								border: solid red 1px;
 							}
 
 							@media (max-width: 488px) {
 								.cards_day-of-week{	left: 10%; }
 								.cards_date{ left: 5%; }
-								.cards_daytime-temperature{	left: 47%; }
-								.cards_nighttime-temperature{ left: 48%; }
+								.cards_daytime-temperature{	left: 40%; }
+								.cards_feels-like-temperatureы{ left: 48%; }
 								.cards_additional-information{ display: none; }
 							}
 						}
