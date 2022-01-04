@@ -1,4 +1,3 @@
-import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { debounceTime, distinct } from 'rxjs';
 
@@ -16,26 +15,32 @@ export class WeatherPageComponent implements OnInit {
 
   constructor(private getUrlCity: GetUrlCityService, private renderer: Renderer2) { }
 
-
-  public dateNow = new Date().getDate();
   public months: Array<string> = ['янв.', 'фев.', 'мар.', 'апр.', 'май', 'июнь', 'июль', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'];
-  public dayOfWeek: Array<string> = ['Вс.', 'Пн.', 'Вт.', 'Ср.', 'Чт.', 'Пт.', 'Сб.'];
-  public month = this.months[new Date().getMonth()]
+  public daysOfWeek: Array<string> = ['Вс.', 'Пн.', 'Вт.', 'Ср.', 'Чт.', 'Пт.', 'Сб.'];
+  public daysOfWeekFullName: Array<string> = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
   public weather: IWeather = {
     temp: '',
-    city: '',
-    img: '',
     feels_like: '',
-    pressure: '',
     description: '',
-    window: {
-      deg: '',
-      speed: '',
-    }
+    pressure: '',
+    img: '',
+    wind: {
+      deg: 0,
+      speed: 0,
+    },
+    date: 0,
+    month: '',
+    dayOfWeek: '',
+    dayOfWeekFullName: '',
   };
 
-  public weatherCards: any = [];
+  public weatherCards: IWeather[] = [];
+
+  //Track events by clicking on the card
+  public showDataOfTheSelectedDay(index: any) {
+    this.weather = this.weatherCards[index];
+  }
 
 
   //Arrow of a direction of the wind
@@ -86,16 +91,6 @@ export class WeatherPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    // Get data for today
-    this.getUrlCity.getCity()
-      .subscribe(
-        (data: any) => {
-          this.weather.city = data.name;
-        }
-      )
-
-    // Get data for this week 
     this.getUrlCity.getCityWeatherForSevenDays()
       .pipe(debounceTime(1500),
         distinct())
@@ -104,50 +99,67 @@ export class WeatherPageComponent implements OnInit {
 
           let tomorrow = new Date();
 
+          //The data for today
+          this.weather.temp = (Math.round(data.current.temp - 273)).toString() + '°';
+
+          this.weather.feels_like = (Math.round(data.current.feels_like - 273)).toString() + '°';
+
+          let description = data.current.weather[0].description;
+          this.weather.description = description[0].toUpperCase() + description.slice(1);
+
+          this.weather.pressure = (Math.round(data.current.pressure * 0.75)).toString();
+
+          this.weather.img = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
+
+          this.weather.wind.deg = data.current.wind_deg;
+
+          this.weather.wind.speed = Math.round(data.current.wind_speed);
+
+          this.getDirectionOfTheWind(this.weather.wind.speed, this.weather.wind.deg);
+
+          this.weather.dayOfWeek = 'Сегодня';
+
+          this.weather.dayOfWeekFullName = 'Сегодня';
+
+          this.weather.date = new Date().getDate();
+
+          this.weather.month = this.months[new Date().getMonth()];
+
+
+          this.weatherCards.push(this.weather)
+
+          // Get data for this week 
           for (let i = 1; i < 7; i++) {
 
             tomorrow.setDate(tomorrow.getDate() + 1);
 
             let card = {
-              img: `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`,
-              temperature: Math.round(data.daily[i].temp.day - 273).toString() + '°',
+              temp: Math.round(data.daily[i].temp.day - 273).toString() + '°',
+
               feels_like: Math.round(data.daily[i].feels_like.day - 273).toString() + '°',
+
               description: data.daily[i].weather[0].description.charAt(0).toUpperCase() + data.daily[i].weather[0].description.slice(1),
+
+              pressure: (Math.round(data.daily[i].pressure * 0.75)).toString(),
+
+              img: `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`,
+
+              wind: {
+                deg: Math.round(data.daily[i].wind_deg),
+                speed: Math.round(data.daily[i].wind_speed),
+              },
+
               date: tomorrow.getDate(),
+
               month: this.months[tomorrow.getMonth()],
-              dayOfWeek: this.dayOfWeek[tomorrow.getDay()],
+
+              dayOfWeek: this.daysOfWeek[tomorrow.getDay()],
+
+              dayOfWeekFullName: this.daysOfWeekFullName[tomorrow.getDay()],
             }
 
-            this.weatherCards.push(card)
+            this.weatherCards.push(card);
           }
-
-          // for (let i = 1; i < 135; i++) {
-
-
-
-          //   console.log(tomorrow.getDate() + " " + this.months[tomorrow.getMonth()])
-          //   //console.log(month)
-
-          //   tomorrow.setDate(tomorrow.getDate() + 1);
-          // }
-          // console.log(this.weatherCards)
-
-          //The data for today
-          this.weather.temp = (Math.round(data.current.temp - 273)).toString() + '°';
-
-          this.weather.img = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
-
-          this.weather.feels_like = (Math.round(data.current.feels_like - 273)).toString() + '°';
-
-          this.weather.pressure = (Math.round(data.current.pressure * 0.75)).toString();
-
-          let description = data.current.weather[0].description;
-          this.weather.description = description[0].toUpperCase() + description.slice(1);
-
-          this.getDirectionOfTheWind(data.current.wind_speed, data.current.wind_deg)
-
-          
-
         }
       )
   }

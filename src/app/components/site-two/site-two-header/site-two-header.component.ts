@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { Observable } from '@reactivex/rxjs';
-import { SiteTwoSelectComponent } from '../site-two-select/site-two-select.component';
+
 
 @Component({
   selector: 'app-site-two-header',
@@ -25,13 +25,6 @@ export class SiteTwoHeaderComponent implements OnInit {
     });
   }
 
-  @ViewChild(SiteTwoSelectComponent, { static: false })
-  select!: SiteTwoSelectComponent;
-
-  @Output() getSelectValue() {
-    // return this.select.selectValue;
-    return [this.select.selectValue, this.select.selectLabel];
-  }
 
   ngOnInit(): void {
   }

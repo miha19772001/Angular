@@ -29,7 +29,9 @@ main{
 					.this-day_temperature{
 						color: #F77F1D;
 						font-size: 96px;
-						display: inline-block;
+						width: 100%;
+						text-align: center;
+						letter-spacing: -5px;
 					}
 
 					.this-day_icon{
@@ -310,7 +312,6 @@ main{
 								right: 24%;
 								top: 17px;
 								text-align: center;
-								//border: red solid 1px;
 							}
 
 							@media (max-width: 488px) {
@@ -326,6 +327,10 @@ main{
 			}
 		}
 	}
+}
+
+.cards_item:hover{
+	box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
 }
 
 %this-day_text-color {

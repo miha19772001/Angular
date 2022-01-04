@@ -8,19 +8,14 @@ header{
 		width: 100%;
 		
 		.header_body{
-			.header_link{
+			.header_content{
 				font-size: 35px;
 				margin: 7px 10%;
 				display: flex;
 				justify-content:space-between;
 			}
 
-			.header_mainLink:visited{ color: #F77F1D; }
-
-			.header_mainLink:hover{
-				color: #db8137;
-				text-decoration: underline;
-			}
+			.header_main{ color: #F77F1D; }
 			
 			.header_search{
 				margin: -5px 0px;

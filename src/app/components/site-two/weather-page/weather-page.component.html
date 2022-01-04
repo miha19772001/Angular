@@ -1,5 +1,5 @@
 <div class="wrapper">
-	<app-site-two-header #header></app-site-two-header>
+	<app-site-two-header></app-site-two-header>
 	<main>
 		<div class="container">
 			<div class="main_grid-content">
@@ -9,13 +9,13 @@
 							<span>{{this.weather.temp}}</span>
 						</div>
 						<div class="this-day_icon">
-							<img [src]='this.weather.img' alt=""/>
+							<img [src]='this.weather.img' alt="" />
 						</div>
 						<div class="this-day_date">
-							<span>Сегодня</span>
+							<span>{{this.weather.dayOfWeekFullName}}</span>
 						</div>
 						<div class="this-day_city">
-							<span>{{this.weather.city}}</span>
+							<span>Нижний Новгород</span>
 						</div>
 					</div>
 				</div>
@@ -63,30 +63,9 @@
 				</div>
 				<div class="main_cards">
 					<div class="cards_container">
-
-						<div class="cards_item">
-							<div class="cards_item-container">
-								<div class="cards_day-of-week">
-									<span>Сегодня</span>
-								</div>
-								<div class="cards_date">
-									<span>{{this.dateNow}} {{this.month}}</span>
-								</div>
-								<div class="cards_icon">
-									<img [src]='this.weather.img' alt="" style="width: 50px; height: 50px;"/>
-								</div>
-								<div class="cards_daytime-temperature">
-									<span>{{this.weather.temp}}</span>
-								</div>
-								<div class="cards_feels-like-temperature">
-									<span>как {{this.weather.feels_like}}</span>
-								</div>
-								<div class="cards_additional-information">
-									<span>{{this.weather.description}}</span>
-								</div>
-							</div>
-						</div>
-						<div class="cards_item" *ngFor="let card of weatherCards">
+						<div class="cards_item" *ngFor="let card of weatherCards; let i = index"
+							(click)="showDataOfTheSelectedDay(i)"
+							(click)="getDirectionOfTheWind(card.wind.speed, card.wind.deg)">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
 									<span>{{card.dayOfWeek}}</span>
@@ -95,10 +74,10 @@
 									<span>{{card.date}} {{card.month}}</span>
 								</div>
 								<div class="cards_icon">
-									<img [src]="card.img" alt="" style="width: 50px; height: 50px;"/>
+									<img [src]="card.img" alt="" style="width: 50px; height: 50px;" />
 								</div>
 								<div class="cards_daytime-temperature">
-									<span>{{card.temperature}}</span>
+									<span>{{card.temp}}</span>
 								</div>
 								<div class="cards_feels-like-temperature">
 									<span>как {{card.feels_like}}</span>
