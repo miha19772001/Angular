@@ -89,10 +89,10 @@
 						<div class="cards_item" *ngFor="let card of weatherCards">
 							<div class="cards_item-container">
 								<div class="cards_day-of-week">
-									<span>Пн.</span>
+									<span>{{card.dayOfWeek}}</span>
 								</div>
 								<div class="cards_date">
-									<span>11 дек</span>
+									<span>{{card.date}} {{card.month}}</span>
 								</div>
 								<div class="cards_icon">
 									<img [src]="card.img" alt="" style="width: 50px; height: 50px;"/>
