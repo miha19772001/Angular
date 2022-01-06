@@ -12,6 +12,8 @@ import { SiteOneModule } from './components/site-one/site-one/site-one.module';
 //To site two
 import { WeatherPageModule } from './components/site-two/weather-page/weather-page.module';
 
+//To site three
+import { GamePageModule } from './components/site-three/game-page/game-page.module';
 
 
 
@@ -24,8 +26,9 @@ import { WeatherPageModule } from './components/site-two/weather-page/weather-pa
     FormsModule,
   ],
   exports: [
-    SiteOneModule, 
+    SiteOneModule,
     WeatherPageModule,
+    GamePageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

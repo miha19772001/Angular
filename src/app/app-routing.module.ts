@@ -7,6 +7,8 @@ import { ContentComponent } from './components/site-one/content/content.componen
 
 import { WeatherPageComponent } from './components/site-two/weather-page/weather-page.component';
 
+import { GamePageComponent } from './components/site-three/game-page/game-page.component';
+
 const routes: Routes = [
 
   //Links in first site
@@ -16,6 +18,9 @@ const routes: Routes = [
 
   //Links in second site
   { path: 'siteTwo', component: WeatherPageComponent },
+
+  //Links in third site
+  { path: 'siteThree', component: GamePageComponent },
 
   { path: '**', redirectTo: '/' },
 ];
