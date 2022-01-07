@@ -1,4 +1,4 @@
-$padding-player: 5.5px;
+$padding-player: 5.5px ;
 
 // @mixin border-color($color) {
 // 	border: $color;
@@ -67,10 +67,10 @@ $padding-player: 5.5px;
 			height: 25px;
 			border-radius: 50px;
 			border: 1px solid #F77F1D;
-			left: 49.6%;
+			left: 2.5%;
 			top: 50%;
 			transform: translateY(-50%);
-			transform: translateX(-49.6%);
+		    //transform: translateX(-49.6%);
 			background-color: #f77f1d7a;
 		}
 	}
