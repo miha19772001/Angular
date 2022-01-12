@@ -7,8 +7,8 @@ $padding-player: 5.5px ;
 
 %style-of-the-players{
 	position: absolute;
-	height: 20%;
-	width: 20px;
+	height: 20%;   //20%
+	width: 20px;  //20%
 	top: 50%;
 	transform: translateY(-50%);
 }
@@ -67,7 +67,7 @@ $padding-player: 5.5px ;
 			height: 25px;
 			border-radius: 50px;
 			border: 1px solid #F77F1D;
-			left: 2.5%;
+			left: 20.5%;
 			top: 50%;
 			transform: translateY(-50%);
 		    //transform: translateX(-49.6%);
