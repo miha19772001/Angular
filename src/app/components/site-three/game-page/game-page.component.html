@@ -1,10 +1,27 @@
 <app-site-three-header></app-site-three-header>
 <div class="wrapper">
+	<div class="wrapper_pop-up" id="pop_up">
+		<div class="wrapper_pop-up_container">
+			<div class="wrapper_pop-up_body">
+				<button class="pop-up_button">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<button class="pop-up_button" id="button_start_game">
+					<div class="pop-up_triangle"></div>
+				</button>
+				<button class="pop-up_button">
+					<img src="assets/img/loading arrow.png" alt="">
+				</button>
+			</div>
+		</div>
+	</div>
 	<div class="wrapper_check">
 		<div class="check_container">
-			<span>5</span>
+			<span>{{this.checkPlayer1}}</span>
 			<span>:</span>
-			<span>5</span>
+			<span>{{this.checkPlayer2}}</span>
 		</div>
 	</div>
 	<div class="wrapper_field" id="field">
