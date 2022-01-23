@@ -10,6 +10,7 @@ header{
 		.header_body{
 			
 			.header_link{
+				position: relative;
 				font-size: 35px;
 				margin: 7px 10%;
 				display: flex;
@@ -22,15 +23,28 @@ header{
 				color: #db8137;
 				text-decoration: underline;
 			}
-			
-			.header_search{
-				margin: -5px 0px;
-				padding: 0px 10px;
+
+			.header_home{
+				position: absolute;
+				top: -2px;
+				right: 0px;
+				width: 40px;
+				height: 40px;
+				background-image: url(../../../../assets/img/home.png);
+				background-color: #282931;
+				background-size: 100% 100%;
+				transform: translateX(-50%);
+			}
+
+			.header_home:hover, 
+			.search_button:hover{
+				opacity: 0.5;
 			}
 
 			.header_input{
 				position: absolute;
-				top: 10px;
+				top: 50%;
+				right: 150px;
 				width: 300px;
 				height: 35px;
 				background-color: #282931;
@@ -38,23 +52,26 @@ header{
 				border-radius: 2em;
 				color: white;
 				padding: 0px 20px;
-				font-size: 20px;
-				margin: 3px -320px;	
+				font-size: 20px;	
+				transform: translateY(-50%);
 			}
 			
-			button{
+			.search_button{
+				position: absolute;
+				top: 0px;
+				right: 70px;
 				width: 35px;
 				height: 35px;
 				background-image: url(../../../../assets/img/magnifier.jpg);
 				background-color: #282931;
 				background-size: 100% 100%;
-				margin: 5px 0px;
+				transform: translateX(-50%);
 			}
 			
 			@media (max-width: 685px) {
 				.header_link{ margin: 7px 5%; }
 			}
-			@media (max-width: 611px) {
+			@media (max-width: 809px) {
 				.header_input{ display: none; }
 			}
 		}
@@ -73,6 +90,6 @@ header{
 	margin: 10px auto;
 }
 
-@media (min-width: 611px) {
+@media (min-width: 810px) {
 	.wrapper_input-outside{	display: none;}
 }

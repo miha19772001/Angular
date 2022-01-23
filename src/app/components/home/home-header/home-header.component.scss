@@ -11,9 +11,16 @@ header{
 			.header_content{
 				font-size: 35px;
 				margin: 7px 10%;
+				display: flex;
+				justify-content:space-between;
 			}
 
 			.header_main{ color: #F77F1D; }
+			
+			.header_search{
+				margin: -5px 0px;
+				padding: 0px 10px;
+			}
 		}
 	}
 }

@@ -18,8 +18,9 @@ export class SiteOneHeaderComponent {
     this.resize_info()
     window.onresize = () => { this.resize_info(); };
   }
+
   resize_info() {
-    innerWidth < 321 ? this.logo = 'ML' : this.logo = 'My Library';
+    innerWidth < 375 ? this.logo = 'ML' : this.logo = 'My Library';
   }
 
   seekBook() {

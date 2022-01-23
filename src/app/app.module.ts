@@ -15,6 +15,10 @@ import { WeatherPageModule } from './components/site-two/weather-page/weather-pa
 //To site three
 import { GamePageModule } from './components/site-three/game-page/game-page.module';
 
+//To site home
+import { HomeModule } from './components/home/home.module';
+
+
 
 
 @NgModule({
@@ -26,6 +30,7 @@ import { GamePageModule } from './components/site-three/game-page/game-page.modu
     FormsModule,
   ],
   exports: [
+    HomeModule,
     SiteOneModule,
     WeatherPageModule,
     GamePageModule,

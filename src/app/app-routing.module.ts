@@ -9,20 +9,26 @@ import { WeatherPageComponent } from './components/site-two/weather-page/weather
 
 import { GamePageComponent } from './components/site-three/game-page/game-page.component';
 
-const routes: Routes = [
+import { HomeComponent } from './components/home/home-page/home.component';
 
-  //Links in first site
+const routes: Routes = [
+  
+  //Link to home site
+  {path: 'home', component: HomeComponent},
+
+  //Links to the first site
   { path: 'siteOne', component: SiteOneComponent },
   { path: 'bookPage/:id', component: BookPageComponent },
   { path: 'bookPage/:id/content/:id', component: ContentComponent },
 
-  //Links in second site
+  //Link to the second site
   { path: 'siteTwo', component: WeatherPageComponent },
 
-  //Links in third site
+  //Link to the third site
   { path: 'siteThree', component: GamePageComponent },
 
-  { path: '**', redirectTo: '/' },
+  //Link to home
+  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
