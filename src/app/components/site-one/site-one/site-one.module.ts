@@ -12,6 +12,7 @@ import { SiteOneComponent } from '../site-one/site-one.component';
 import { SiteOneHeaderComponent } from '../site-one-header/site-one-header.component';
 import { BookPageComponent } from '../book-page/book-page.component';
 import { ContentComponent } from '../content/content.component';
+import { WorkNotFoundComponent } from '../work-not-found/work-not-found.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { ContentComponent } from '../content/content.component';
     SiteOneHeaderComponent,
     BookPageComponent,
     ContentComponent,
+    WorkNotFoundComponent,
   ],
   exports: [SiteOneComponent],
   providers: [],

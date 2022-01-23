@@ -53,6 +53,10 @@ export class GamePageComponent implements OnInit {
     });
   }
 
+  public goHome(){
+    const button = document.getElementById('button_go_home');
+  }
+
   public movePlayer1() {
 
     let field = document.getElementById('field');

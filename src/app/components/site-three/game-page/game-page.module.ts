@@ -13,6 +13,7 @@ import { GamePageComponent } from './game-page.component';
     CommonModule,
     BrowserModule,
     FormsModule,
+    RouterModule,
   ],
   declarations: [
     SiteThreeHeaderComponent,

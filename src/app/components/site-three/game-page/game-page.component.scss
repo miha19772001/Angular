@@ -63,22 +63,9 @@ $padding-player: 5.5px ;
 				}
 
 				button:nth-child(1){
-					position: relative;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-
-					span:nth-child(1){
-						@extend %span_pop-up;
-						margin-top: 15px;
-					}
-					span:nth-child(2){
-						@extend %span_pop-up;
-						margin-top: 25px;
-					}
-					span:nth-child(3){
-						@extend %span_pop-up;
-						margin-top: 35px;
+					img{
+						width: 80%;
+						height: 80%;
 					}
 				}
 				button:nth-child(2){

@@ -28,9 +28,17 @@ export class SiteOneHeaderComponent {
       .subscribe(
         (data: any) => {
           for (let index = 0; index < data.books.length; index++) {
-            if (data.books[index].name === this.nameBook[0].toUpperCase() + this.nameBook.slice(1)) {
+
+            if (this.nameBook === "") {
+              document.location.pathname = `/siteOne/workNotFound`;
+              break;
+            }
+            else if (data.books[index].name === this.nameBook[0].toUpperCase() + this.nameBook.slice(1)) {
               document.location.pathname = `/bookPage/${index + 1}`;
               break;
+            }
+            else if (data.books[index].name !== this.nameBook[0].toUpperCase() + this.nameBook.slice(1)) {
+              document.location.pathname = `/siteOne/workNotFound`;
             }
           }
         }
