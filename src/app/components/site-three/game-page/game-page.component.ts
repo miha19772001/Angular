@@ -8,31 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePageComponent implements OnInit {
 
-  public handler: any;
-
   constructor() { }
 
   private speedPlayer = 15;
 
-  public checkPlayer1: number = 0;
-  public checkPlayer2: number = 0;
+  public checkPlayers: number = 0;
 
   private spaceIsPress: boolean = false;
+  private gameIsEnd: boolean = false;
 
-  public startGame(){
+  public startGame() {
     const buttonStartGame = document.getElementById('button_start_game');
     const popUp = document.getElementById('pop_up');
 
     buttonStartGame?.addEventListener('click', (event) => {
-      this.spaceIsPress = !this.spaceIsPress;
-       
-      if (this.spaceIsPress) {
-        popUp?.classList.add('inactive');
-      }
-      else{
-        popUp?.classList.remove('inactive');
+      if(!this.gameIsEnd){
+
+        this.spaceIsPress = !this.spaceIsPress;
+  
+        if (this.spaceIsPress) {
+          popUp?.classList.add('inactive');
+        }
+        else {
+          popUp?.classList.remove('inactive');
+        }
+
       }
     });
+
   }
 
   public getPause() {
@@ -40,21 +43,56 @@ export class GamePageComponent implements OnInit {
     const popUp = document.getElementById('pop_up');
 
     document.addEventListener('keydown', (event) => {
-      if (event.code === 'Space') {
+
+      if (event.code === 'Space' && !this.gameIsEnd) {
         this.spaceIsPress = !this.spaceIsPress;
         event.preventDefault();
         if (this.spaceIsPress) {
           popUp?.classList.add('inactive');
         }
-        else{
+        else {
           popUp?.classList.remove('inactive');
         }
       }
     });
   }
 
-  public goHome(){
-    const button = document.getElementById('button_go_home');
+
+  //Перезагрузка игры
+  public reloadPage() {
+    location.reload();
+  }
+
+  //Pop-up для конца игры
+  public getPopUpForEndGame() {
+
+    const popUp = document.getElementById('pop_up');
+    const message = document.querySelector('.wrapper_pop-up_message-for-the-players');
+    const field = document.getElementById('field');
+    const ball = document.getElementById("ball");
+
+    let fieldLeft = field!.getBoundingClientRect().left;
+    let fieldRight = field!.getBoundingClientRect().right;
+
+    let ballLeft = ball!.getBoundingClientRect().left;
+    let ballRight = ball!.getBoundingClientRect().right;
+
+    //Pop-up в случае победы
+    if (this.checkPlayers === 20) {
+      this.gameIsEnd = true;
+      popUp?.classList.remove('inactive');
+      this.spaceIsPress = false;
+      message!.textContent = "Вы выйграли!";
+    }
+
+    //Pop-up в случае проигрыша
+    else if (ballLeft - 5 <= fieldLeft || ballRight + 5 >= fieldRight) {
+      this.gameIsEnd = true;
+      popUp?.classList.remove('inactive');
+      this.spaceIsPress = false;
+      message!.textContent = "Вы проиграли!";
+    }
+
   }
 
   public movePlayer1() {
@@ -90,7 +128,7 @@ export class GamePageComponent implements OnInit {
     let player2 = document.getElementById('player2');
 
     let dx = 5; //5
-    let dy = 2; //-2
+    let dy = -1; //-2
 
     setInterval(() => {
 
@@ -106,22 +144,21 @@ export class GamePageComponent implements OnInit {
 
       let player1Top = player1!.getBoundingClientRect().top;
       let player1Bottom = player1!.getBoundingClientRect().bottom;
-      let player1Left = player1!.getBoundingClientRect().left;
       let player1Right = player1!.getBoundingClientRect().right;
 
       let player2Top = player2!.getBoundingClientRect().top;
       let player2Bottom = player2!.getBoundingClientRect().bottom;
       let player2Left = player2!.getBoundingClientRect().left;
-      let player2Right = player2!.getBoundingClientRect().right;
 
-      //Счёт первого игрока
-      if (ballLeft + dx <= fieldLeft) this.checkPlayer2 += 1;
-      //Счёт второго игрока
-      if (ballRight + dy >= fieldRight) this.checkPlayer1 += 1;
+      //Общий счёт игроков
+      if ((ballLeft + dx <= player1Right && (ballTop >= player1Top && ballBottom <= player1Bottom)) || (ballRight + dx >= player2Left && (ballTop >= player2Top && ballBottom <= player2Bottom))) this.checkPlayers += 1;
 
 
+      //Изменение направления мяча по оси Y
       if (ballTop + dy <= fieldTop || ballBottom + dy >= fieldBottom) dy = -dy;
 
+
+      //Изменение направления мяча по оси X
       if (ballLeft + dx <= fieldLeft || ballRight + dy >= fieldRight || (ballLeft + dx <= player1Right && (ballTop >= player1Top && ballBottom <= player1Bottom)) || (ballRight + dx >= player2Left && (ballTop >= player2Top && ballBottom <= player2Bottom))) dx = -dx;
 
 
@@ -163,25 +200,25 @@ export class GamePageComponent implements OnInit {
 
       let fieldTop = field?.getBoundingClientRect().top;
       let fieldBottom = field?.getBoundingClientRect().bottom;
-      //this.unique().find((o:string) => o === 'KeyI')
+
       if (event.code === 'KeyI' && player2Top! >= fieldTop! + 15 && this.spaceIsPress === true) {
         let goTop = player2?.offsetTop;
         player2!.style.top = goTop! - this.speedPlayer + 'px';
       }
-      //this.unique().find((o:string) => o === 'KeyK'
       else if (event.code === 'KeyK' && player2Bottom! <= fieldBottom! - 15 && this.spaceIsPress === true) {
         let goTop = player2?.offsetTop;
         player2!.style.top = goTop! + this.speedPlayer + 'px';
       }
-
-
     })
   }
   ngOnInit(): void {
+
     this.startGame();
-    this.movePlayer1();
-    this.moveBall();
-    this.movePlayer2();
     this.getPause();
+
+    this.movePlayer1();
+    this.moveBall(); 
+    this.movePlayer2();
+    setInterval(() => { this.getPopUpForEndGame(); }, 10);
   }
 }

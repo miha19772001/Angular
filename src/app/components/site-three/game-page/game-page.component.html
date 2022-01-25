@@ -1,15 +1,21 @@
-<app-site-three-header></app-site-three-header>
+<site-three-header></site-three-header>
 <div class="wrapper">
 	<div class="wrapper_pop-up" id="pop_up">
 		<div class="wrapper_pop-up_container">
+			<div class="wrapper_pop-up_rules-of-the-game">
+				<div><u>Цель игры:</u> набрать 20 очков, отбивая мяч от платформ. Не допустив удара мяча о боковые стенки поля.</div>
+				<div><u>Управление перого игрока:</u> w - вверз; s - вниз;</div>
+				<div><u>Управление второго игрока:</u> i - вверз; k - вниз;</div>
+			</div>
 			<div class="wrapper_pop-up_body">
+				<div class="wrapper_pop-up_message-for-the-players"></div>
 				<button class="pop-up_button" id="button_go_home" routerLink="/home">
 					<img src="assets/img/home_orange.png" alt="">
 				</button>
 				<button class="pop-up_button" id="button_start_game">
-					<div class="pop-up_triangle"></div>
+					<img src="assets/img/play.png" alt="">
 				</button>
-				<button class="pop-up_button">
+				<button class="pop-up_button" (click)="this.reloadPage()">
 					<img src="assets/img/loading_arrow.png" alt="">
 				</button>
 			</div>
@@ -17,9 +23,9 @@
 	</div>
 	<div class="wrapper_check">
 		<div class="check_container">
-			<span>{{this.checkPlayer1}}</span>
-			<span>:</span>
-			<span>{{this.checkPlayer2}}</span>
+			<span>{{this.checkPlayers}}</span>
+			<!-- <span>:</span>
+			<span>{{this.checkPlayer2}}</span> -->
 		</div>
 	</div>
 	<div class="wrapper_field" id="field">

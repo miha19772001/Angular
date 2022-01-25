@@ -39,9 +39,26 @@ $padding-player: 5.5px ;
 		display: block;
 
 		.wrapper_pop-up_container{
+			position: relative;
 			display: flex;
 			width: 100%;
 			height: 100%;
+
+			.wrapper_pop-up_rules-of-the-game{
+				position: absolute;
+				width: 100%;
+				left: 49%;
+				top: 5%;
+				transform: translateX(-50%);
+				padding: 20px;
+				font-size: 18px;
+				line-height: 26px;
+
+				div{
+					padding: 10px;
+					text-align: center;
+				}
+			}
 
 			.wrapper_pop-up_body{
 				display: flex;
@@ -55,6 +72,12 @@ $padding-player: 5.5px ;
 				padding: 100px 15px 110px 15px;
 				position: relative;
 
+				.wrapper_pop-up_message-for-the-players{
+					position: absolute;
+					top: 10%;
+					font-size: 32px;
+				}
+
 				button{
 					width: 50px;
 					height: 50px;
@@ -62,30 +85,14 @@ $padding-player: 5.5px ;
 					background-color: #282931;
 				}
 
-				button:nth-child(1){
+				button{
 					img{
 						width: 80%;
 						height: 80%;
 					}
-				}
-				button:nth-child(2){
-					display: flex;
-					align-items: center;
-					justify-content: center;
 
-					.pop-up_triangle{
-						width: 0; 
-						height: 0;
-						border-top: 15px solid transparent;
-						border-left: 30px solid #F77F1D;
-						border-bottom: 15px solid transparent;
-					}
-				}
-
-				button:nth-child(3){
-					img{
-						width: 80%;
-						height: 80%;
+					img:hover{
+						opacity: 0.5;
 					}
 				}
 			}

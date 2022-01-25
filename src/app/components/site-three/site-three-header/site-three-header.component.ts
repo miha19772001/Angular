@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from '@reactivex/rxjs';
 
 @Component({
-  selector: 'app-site-three-header',
+  selector: 'site-three-header',
   templateUrl: './site-three-header.component.html',
   styleUrls: ['./site-three-header.component.scss']
 })
