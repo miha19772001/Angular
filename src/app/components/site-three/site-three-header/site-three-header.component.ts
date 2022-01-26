@@ -24,7 +24,6 @@ export class SiteThreeHeaderComponent implements OnInit {
     });
   }
 
-
   ngOnInit(): void {
   }
 }

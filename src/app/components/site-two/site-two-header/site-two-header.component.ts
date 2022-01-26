@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Observable } from '@reactivex/rxjs';
-
 
 @Component({
   selector: 'app-site-two-header',

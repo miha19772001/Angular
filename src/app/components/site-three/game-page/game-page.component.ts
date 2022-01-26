@@ -15,6 +15,7 @@ export class GamePageComponent implements OnInit {
   public checkPlayers: number = 0;
 
   private spaceIsPress: boolean = false;
+
   private gameIsEnd: boolean = false;
 
   public startGame() {
@@ -22,10 +23,10 @@ export class GamePageComponent implements OnInit {
     const popUp = document.getElementById('pop_up');
 
     buttonStartGame?.addEventListener('click', (event) => {
-      if(!this.gameIsEnd){
+      if (!this.gameIsEnd) {
 
         this.spaceIsPress = !this.spaceIsPress;
-  
+
         if (this.spaceIsPress) {
           popUp?.classList.add('inactive');
         }
@@ -186,8 +187,6 @@ export class GamePageComponent implements OnInit {
     }, 10);
   }
 
-
-
   public movePlayer2() {
 
     let field = document.getElementById('field');
@@ -217,7 +216,7 @@ export class GamePageComponent implements OnInit {
     this.getPause();
 
     this.movePlayer1();
-    this.moveBall(); 
+    this.moveBall();
     this.movePlayer2();
     setInterval(() => { this.getPopUpForEndGame(); }, 10);
   }

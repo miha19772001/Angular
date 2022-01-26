@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http'
 
 import { SiteOneComponent } from '../site-one/site-one.component';

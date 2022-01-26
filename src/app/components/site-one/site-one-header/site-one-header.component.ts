@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
+
 @Component({
   selector: 'site-one-header',
   templateUrl: './site-one-header.component.html',
@@ -10,8 +11,6 @@ export class SiteOneHeaderComponent {
   logo: string = '';
 
   nameBook: string = '';
-
-  values = '';
 
   constructor(private bookPage: BookPageService) {
 

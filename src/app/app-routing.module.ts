@@ -17,15 +17,15 @@ import { GamePageComponent } from './components/site-three/game-page/game-page.c
 import { HomeComponent } from './components/home/home-page/home.component';
 
 const routes: Routes = [
-  
+
   //Link to home site
-  {path: 'home', component: HomeComponent},
+  { path: 'home', component: HomeComponent },
 
   //Links to the first site
   { path: 'siteOne', component: SiteOneComponent },
   { path: 'bookPage/:id', component: BookPageComponent },
   { path: 'bookPage/:id/content/:id', component: ContentComponent },
-  { path: 'siteOne/workNotFound', component: WorkNotFoundComponent},
+  { path: 'siteOne/workNotFound', component: WorkNotFoundComponent },
 
   //Link to the second site
   { path: 'siteTwo', component: WeatherPageComponent },

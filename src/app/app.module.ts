@@ -18,10 +18,6 @@ import { GamePageModule } from './components/site-three/game-page/game-page.modu
 //To site home
 import { HomeModule } from './components/home/home.module';
 
-
-
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

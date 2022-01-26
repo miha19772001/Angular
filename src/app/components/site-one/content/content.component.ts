@@ -36,7 +36,6 @@ export class ContentComponent implements OnInit {
     return this.getId().contentId + 1 == this.book.content.length ? false : true;
   }
 
-
   getId() {
     const path = document.location.pathname.split('/');
 
@@ -81,5 +80,4 @@ export class ContentComponent implements OnInit {
         }
       );
   }
-
 }

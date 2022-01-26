@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BookPageService } from 'src/app/services/oneSite/book-page.service.service';
 import { IBook } from 'src/assets/Interfaces/IBook';
 
-
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
