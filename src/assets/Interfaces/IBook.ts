@@ -1,8 +1,8 @@
 export interface IBook {
-	id: number,
 	name: string,
-	autor: string,
-	discription: string,
+	author: string,
+	linkToShop: string,
 	img: string,
-	content: string,
+	isFavorite?: boolean,
+	id?: any,
 }

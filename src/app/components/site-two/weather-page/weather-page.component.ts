@@ -1,5 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { debounceTime, distinct } from 'rxjs';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 import { GetUrlCityService } from 'src/app/services/twoSite/get-url-city.service';
 
@@ -46,8 +45,8 @@ export class WeatherPageComponent implements OnInit {
   //Arrow of a direction of the wind
   public getDirectionOfTheWind(speed: number, deg: number) {
 
-    let arrow = document.getElementById('info_meaning-arrow');
-    let wind = document.getElementById('info_meaning-wind');
+    let arrow = document.getElementById('info__mean-arrow');
+    let wind = document.getElementById('info__mean-wind');
 
     if (deg === 0 || deg === 360 || deg <= 22 || deg > 348) {
       this.renderer.setStyle(arrow, "transform", `rotate(${deg.toString()}deg)`);
@@ -90,10 +89,13 @@ export class WeatherPageComponent implements OnInit {
     }
   }
 
+  scrollToTop() {
+    window.scrollTo(pageYOffset, 0);
+  }
+
   ngOnInit(): void {
+
     this.getUrlCity.getCityWeatherForSevenDays()
-      .pipe(debounceTime(1500),
-        distinct())
       .subscribe(
         (data: any) => {
 
@@ -130,6 +132,8 @@ export class WeatherPageComponent implements OnInit {
 
           // Get data for this week 
           for (let i = 1; i < 7; i++) {
+
+
 
             tomorrow.setDate(tomorrow.getDate() + 1);
 

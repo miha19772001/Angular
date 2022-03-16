@@ -1,20 +1,39 @@
 <div class="wrapper">
-	<site-one-header></site-one-header>
-	<main>
-		<div class="main_grid">
-			<div class="main_item">
-				<div class="main_container">
-					<ul>
-						<li *ngFor="let book of books"><a [routerLink]="['/bookPage', book.id]">{{book.name}} —
-								{{book.autor}}</a></li>
-					</ul>
+	<header-site-one></header-site-one>
+	<div class="content">
+		<aside class="content__item aside">
+			<nav class="content__nav nav">
+				<form class="nav__form form" [formGroup]="form" (ngSubmit)="onSubmit()">
+					<input class="nav__form-input" type="text" placeholder="Search books by name"
+						formControlName="nameBook" #inputSearchedBook>
+					<button class="nav__button nav__button--current" type="submit" [disabled]="form.invalid"
+						(click)="currentButton(searchButton)" #searchButton> Search </button>
+				</form>
+				<button class="nav__button" (click)="getFavoriteBooks()" (click)="currentButton(favoriteButton)"
+					#favoriteButton> Favorites </button>
+			</nav>
+		</aside>
+		<main class="content__item main">
+			<div class="main__book" *ngFor="let book of books">
+				<div class="main__favorite-book">
+					<img src="assets/img/star-white.png" *ngIf="!book.isFavorite " alt=""
+						(click)="setFavorite(imgFavorite, book)" #imgFavorite>
+					<img src="assets/img/star-yellow.png" *ngIf="book.isFavorite " alt=""
+						(click)="removeFavorite(imgFavorite, book)" #imgFavorite>
+				</div>
+				<a class="main__link" href={{book.linkToShop}} target="blank">
+					<img [src]="[book.img]" alt="Обложка" />
+				</a>
+				<div class="main__book-info">
+					<div>
+						<a href={{book.linkToShop}} target="blank">
+							<span>{{book.name}}</span>
+						</a>
+					</div>
+					<div>
+						<span>{{book.author}}</span>
+					</div>
 				</div>
 			</div>
-			<div class="main_item">
-				<div class="main_container main_container-lat">
-					Omne ignotum pro magnifico.
-				</div>
-			</div>
-		</div>
-	</main>
-</div>
+		</main>
+	</div>

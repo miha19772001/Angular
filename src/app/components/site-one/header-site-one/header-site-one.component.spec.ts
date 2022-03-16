@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkNotFoundComponent } from './work-not-found.component';
+import { HeaderSiteOneComponent } from './header-site-one.component';
 
-describe('WorkNotFoundComponent', () => {
-  let component: WorkNotFoundComponent;
-  let fixture: ComponentFixture<WorkNotFoundComponent>;
+describe('HeaderSiteOneComponent', () => {
+  let component: HeaderSiteOneComponent;
+  let fixture: ComponentFixture<HeaderSiteOneComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkNotFoundComponent ]
+      declarations: [ HeaderSiteOneComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkNotFoundComponent);
+    fixture = TestBed.createComponent(HeaderSiteOneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
