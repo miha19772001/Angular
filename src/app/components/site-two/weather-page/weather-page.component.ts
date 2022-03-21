@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 import { GetUrlCityService } from 'src/app/services/twoSite/get-url-city.service';
 
@@ -13,6 +13,9 @@ import { IWeather } from 'src/assets/Interfaces/IWeather';
 export class WeatherPageComponent implements OnInit {
 
   constructor(private getUrlCity: GetUrlCityService, private renderer: Renderer2) { }
+
+  public logo: string = 'My Weather';
+  public shortLogo: string = 'MW';
 
   public months: Array<string> = ['янв.', 'фев.', 'мар.', 'апр.', 'май', 'июнь', 'июль', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'];
   public daysOfWeek: Array<string> = ['Вс.', 'Пн.', 'Вт.', 'Ср.', 'Чт.', 'Пт.', 'Сб.'];
@@ -132,9 +135,6 @@ export class WeatherPageComponent implements OnInit {
 
           // Get data for this week 
           for (let i = 1; i < 7; i++) {
-
-
-
             tomorrow.setDate(tomorrow.getDate() + 1);
 
             let card = {

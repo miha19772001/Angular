@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { WeatherPageComponent } from './weather-page.component';
-import { SiteTwoHeaderComponent } from '../site-two-header/site-two-header.component';
+import { HeaderModule } from '../../header/header.module';
 
 @NgModule({
   imports: [
@@ -16,10 +16,10 @@ import { SiteTwoHeaderComponent } from '../site-two-header/site-two-header.compo
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HeaderModule,
   ],
   declarations: [
     WeatherPageComponent,
-    SiteTwoHeaderComponent,
   ],
   exports: [WeatherPageComponent],
   providers: [],

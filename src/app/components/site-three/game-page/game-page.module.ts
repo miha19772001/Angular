@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { SiteThreeHeaderComponent } from '../site-three-header/site-three-header.component';
+import { HeaderModule } from '../../header/header.module';
 import { GamePageComponent } from './game-page.component';
 
 
@@ -14,9 +14,9 @@ import { GamePageComponent } from './game-page.component';
     BrowserModule,
     FormsModule,
     RouterModule,
+    HeaderModule,
   ],
   declarations: [
-    SiteThreeHeaderComponent,
     GamePageComponent,
   ],
   exports: [GamePageComponent],

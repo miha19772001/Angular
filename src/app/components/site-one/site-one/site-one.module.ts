@@ -6,13 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http'
 
+import { HeaderModule } from '../../header/header.module';
 import { SiteOneComponent } from '../site-one/site-one.component';
-
-import { HeaderSiteOneComponent } from '../header-site-one/header-site-one.component';
-//import { SiteOneHeaderComponent } from '../site-one-header/site-one-header.component';
-// import { BookPageComponent } from '../book-page/book-page.component';
-// import { ContentComponent } from '../content/content.component';
-// import { WorkNotFoundComponent } from '../work-not-found/work-not-found.component';
 
 @NgModule({
   imports: [
@@ -22,14 +17,10 @@ import { HeaderSiteOneComponent } from '../header-site-one/header-site-one.compo
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    HeaderModule,
   ],
   declarations: [
-    HeaderSiteOneComponent,
     SiteOneComponent,
-    // SiteOneHeaderComponent,
-    // BookPageComponent,
-    // ContentComponent,
-    // WorkNotFoundComponent,
   ],
   exports: [SiteOneComponent],
   providers: [],

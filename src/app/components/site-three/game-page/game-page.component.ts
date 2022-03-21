@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
@@ -9,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class GamePageComponent implements OnInit {
 
   constructor() { }
+
+  public logo: string = 'My Game';
+  public shortLogo: string = 'MG';
 
   private speedPlayer = 15;
 
@@ -19,8 +21,8 @@ export class GamePageComponent implements OnInit {
   private gameIsEnd: boolean = false;
 
   public startGame() {
-    const buttonStartGame = document.getElementById('button_start_game');
-    const popUp = document.getElementById('pop_up');
+    const buttonStartGame = document.getElementById('button-start-game');
+    const popUp = document.getElementById('pop-up');
 
     buttonStartGame?.addEventListener('click', (event) => {
       if (!this.gameIsEnd) {
@@ -41,7 +43,7 @@ export class GamePageComponent implements OnInit {
 
   public getPause() {
 
-    const popUp = document.getElementById('pop_up');
+    const popUp = document.getElementById('pop-up');
 
     document.addEventListener('keydown', (event) => {
 
@@ -58,7 +60,6 @@ export class GamePageComponent implements OnInit {
     });
   }
 
-
   //Перезагрузка игры
   public reloadPage() {
     location.reload();
@@ -67,8 +68,8 @@ export class GamePageComponent implements OnInit {
   //Pop-up для конца игры
   public getPopUpForEndGame() {
 
-    const popUp = document.getElementById('pop_up');
-    const message = document.querySelector('.wrapper_pop-up_message-for-the-players');
+    const popUp = document.getElementById('pop-up');
+    const message = document.querySelector('.pop-up__message-for-the-players');
     const field = document.getElementById('field');
     const ball = document.getElementById("ball");
 
@@ -93,7 +94,6 @@ export class GamePageComponent implements OnInit {
       this.spaceIsPress = false;
       message!.textContent = "Вы проиграли!";
     }
-
   }
 
   public movePlayer1() {
@@ -210,8 +210,8 @@ export class GamePageComponent implements OnInit {
       }
     })
   }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
     this.startGame();
     this.getPause();
 

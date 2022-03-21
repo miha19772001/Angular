@@ -1,6 +1,6 @@
 import { BookService } from 'src/app/services/oneSite/book-page.service.service';
 import { IBook } from 'src/assets/Interfaces/IBook';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -13,7 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SiteOneComponent {
 
   constructor(private bookService: BookService) {
-  
+
   }
 
   @ViewChild('inputSearchedBook') inputSearchedBook!: ElementRef;
@@ -24,6 +24,9 @@ export class SiteOneComponent {
   form!: FormGroup;
 
   public books: IBook[] = [];
+
+  public logo: string = 'My Library';
+  public shortLogo: string = 'ML';
 
   onSubmit() {
 
@@ -124,4 +127,3 @@ export class SiteOneComponent {
     });
   }
 }
-

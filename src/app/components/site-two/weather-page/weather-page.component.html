@@ -1,5 +1,5 @@
 <div class="wrapper">
-	<app-site-two-header></app-site-two-header>
+	<app-header [logo]="logo" [shortLogo]="shortLogo"></app-header>
 	<main>
 		<div class="container">
 			<div class="container__content">
@@ -63,8 +63,8 @@
 				</div>
 				<div class="container__cards cards">
 					<div class="cards__container">
-						<div class="cards__card-item card-item" (click)="this.scrollToTop()" *ngFor="let card of weatherCards; let i = index"
-							(click)="showDataOfTheSelectedDay(i)"
+						<div class="cards__card-item card-item" (click)="this.scrollToTop()"
+							*ngFor="let card of weatherCards; let i = index" (click)="showDataOfTheSelectedDay(i)"
 							(click)="getDirectionOfTheWind(card.wind.speed, card.wind.deg)">
 							<div class="card-item__container">
 								<div class="card-item__day-of-week">
